@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0f1d">
+  <meta name="description" content="IGNRoast — a playful username, gamertag and aura auditor.">
+  <title>IGNRoast — Universal Roast & Aura Auditor</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar wrap">
+    <a class="brand" href="#" aria-label="IGNRoast home"><span class="brand-mark">IR</span><span>IGN<span class="accent">ROAST</span><small>UNIVERSAL AURA AUDITOR</small></span></a>
+    <span class="live-pill"><i></i> ROAST SYSTEM ONLINE</span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow"><span>✦</span> THE INTERNET'S LEAST QUALIFIED JUDGE</div>
+      <h1>YOUR NAME.<br><span class="gradient-text">OUR VERDICT.</span></h1>
+      <p class="hero-copy">Drop a username, gamertag, real name or completely random word. The aura scanner has absolutely no chill (but keeps it playful).</p>
+    </section>
+
+    <section class="input-panel glass" aria-label="Roast a name">
+      <label for="nameInput">ENTER YOUR TARGET</label>
+      <div class="input-row">
+        <input id="nameInput" maxlength="32" autocomplete="off" placeholder="Type a gamertag, name or GitHub handle..." aria-label="Name to roast">
+        <button id="roastBtn" class="primary-btn"><span>⚡</span> ROAST ME</button>
+      </div>
+      <div class="quick-actions">
+        <button class="chip" data-preset="gamer">🎮 Gamer</button>
+        <button class="chip" data-preset="uncle">📰 Uncle News Mode</button>
+        <button class="chip" data-preset="random">🎲 Random Chaos</button>
+        <button class="chip subtle" id="randomBtn">↻ Surprise me</button>
+      </div>
+      <p class="microcopy">No account. No payment. No personal data stored. Just vibes.</p>
+      <div id="errorMsg" class="error" role="alert" hidden></div>
+    </section>
+
+    <div class="ad-slot ad-top" data-ad-slot="top" hidden><span>ADVERTISEMENT SPACE</span></div>
+
+    <section id="loading" class="loading glass" hidden aria-live="polite">
+      <div class="scanner"></div><h2 id="loadingTitle">ANALYZING AURA...</h2><p id="loadingSub">Checking imaginary coffee levels</p>
+      <div class="loading-track"><span></span></div>
+    </section>
+
+    <section id="resultSection" class="result-section" hidden aria-live="polite">
+      <div class="result-heading"><div><div class="eyebrow">✦ OFFICIAL AUDIT REPORT</div><h2>THE VERDICT IS IN.</h2></div><span class="stamp">100% UNOFFICIAL</span></div>
+      <article id="roastCard" class="roast-card">
+        <div class="card-topline"><span>IGNROAST // AURA DIVISION</span><span id="cardDate"></span></div>
+        <div class="card-main">
+          <div class="avatar-wrap"><img id="avatar" alt="Generated avatar"><span class="avatar-orbit"></span></div>
+          <div class="identity"><span class="small-label">SUBJECT IDENTIFIED</span><h3 id="subjectName">PLAYER_ONE</h3><p id="auraTitle">CERTIFIED SIDE-QUEST NPC</p></div>
+          <div class="score-box"><strong id="score">72</strong><span>/ 100</span><small id="scoreLabel">CRINGE INDEX</small></div>
+        </div>
+        <div class="meter"><span id="meterFill"></span></div>
+        <div class="audit-grid">
+          <div class="audit-stat"><span>🎮 SWEAT</span><strong id="sweatScore">--</strong></div>
+          <div class="audit-stat"><span>☕ BOOMER</span><strong id="boomerScore">--</strong></div>
+          <div class="audit-stat"><span>✨ AURA</span><strong id="auraScore">--</strong></div>
+        </div>
+        <div class="roast-copy"><div class="small-label">THE DAMAGE REPORT</div><ul id="roastList"></ul></div>
+        <div id="apiNote" class="api-note"></div>
+        <div class="card-footer"><span>VERDICT: MOSTLY VIBES</span><span>NOT A REAL SCIENTIFIC TEST</span></div>
+      </article>
+      <div class="result-actions">
+        <button id="downloadBtn" class="secondary-btn">⬇ Download PNG</button>
+        <button id="shareBtn" class="secondary-btn">↗ Share verdict</button>
+        <button id="copyBtn" class="secondary-btn">▣ Copy roast</button>
+        <button id="againBtn" class="secondary-btn">↻ Roast again</button>
+      </div>
+      <div class="ad-slot ad-feed" data-ad-slot="feed" hidden><span>ADVERTISEMENT SPACE</span></div>
+      <a class="coffee-btn" href="https://www.buymeacoffee.com/ArbinSharma" target="_blank" rel="noopener noreferrer">☕ SUPPORT ARBIN <span>↗</span></a>
+    </section>
+
+    <section class="how glass">
+      <div class="eyebrow">✦ HOW IT WORKS</div><h2>THREE STEPS. ZERO MERCY.</h2>
+      <div class="steps">
+        <div><b>01</b><span class="step-icon">⌨️</span><h3>DROP A NAME</h3><p>Any username, gamer tag, name or word.</p></div>
+        <div><b>02</b><span class="step-icon">🛰️</span><h3>SCAN THE VIBE</h3><p>Local roast engine plus optional public profile lookups.</p></div>
+        <div><b>03</b><span class="step-icon">🏆</span><h3>CLAIM YOUR CARD</h3><p>Download your roast card and share the chaos.</p></div>
+      </div>
+    </section>
+
+    <section class="creator glass">
+      <button id="creatorToggle" class="creator-toggle" aria-expanded="false" aria-controls="creatorBody">
+        <span><span class="creator-icon">✦</span> MEET THE CREATOR <small>THE HUMAN BEHIND THE CHAOS</small></span><span id="creatorChevron">＋</span>
+      </button>
+      <div id="creatorBody" class="creator-body" hidden>
+        <img id="creatorAvatar" src="./image.jpeg" alt="Arbin Sharma creator avatar">
+        <div><h3>ARBIN SHARMA</h3><p>Young web developer, cybersecurity enthusiast, bug hunter, AI builder and digital creator. Building experiments including Arbin AI, AIFail, Stream Movie and Rosy.</p><p class="creator-tag">BUILD • BREAK • LEARN • REPEAT</p></div>
+      </div>
+    </section>
+    <div class="ad-slot ad-sticky" data-ad-slot="sticky" hidden><span>ADVERTISEMENT SPACE</span></div>
+  </main>
+
+  <footer class="wrap footer">
+    <a class="coffee-link" href="https://www.buymeacoffee.com/ArbinSharma" target="_blank" rel="noopener noreferrer">☕ Support Arbin</a>
+    <p>Made for laughs. Keep it kind. © <span id="year"></span> IGNRoast</p>
+    <p class="disclaimer">Roasts are generated for entertainment and are not factual judgments about people.</p>
+  </footer>
+  <script src="./js/config.js"></script>
+  <script src="./js/roast-engine.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/card.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
